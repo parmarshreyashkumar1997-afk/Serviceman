@@ -1,0 +1,10 @@
+{
+  "name": "Serviceman Electrical Services",
+  "short_name": "Serviceman",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f8fc",
+  "theme_color": "#09254a",
+  "description": "Electrical service booking in Patan, Gujarat",
+  "icons": []
+}

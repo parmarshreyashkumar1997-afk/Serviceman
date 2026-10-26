@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09254a">
+  <meta name="description" content="Serviceman electrical service booking in Patan, Gujarat">
+  <title>Serviceman | Electrical Services</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brandmark">⚡</div>
+  <div class="brand-wrap"><div class="brand">Service<span>man</span></div><small>Electrical Service at Your Doorstep</small></div>
+  <button class="lang-toggle" id="languageToggle" type="button">ગુજરાતી</button>
+  <a class="call-top" href="tel:9408671386">☎ Call</a>
+</header>
+<main>
+  <section class="hero">
+    <div class="eyebrow">PATAN, GUJARAT</div>
+    <h1 data-en="Electrical Service<br><span>at Your Doorstep</span>" data-gu="ઇલેક્ટ્રિકલ સર્વિસ<br><span>તમારા ઘર સુધી</span>">Electrical Service<br><span>at Your Doorstep</span></h1>
+    <p data-en="Residential • Commercial • Industrial" data-gu="રેસિડેન્શિયલ • કોમર્શિયલ • ઇન્ડસ્ટ્રિયલ">Residential • Commercial • Industrial</p>
+    <button class="primary" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})" data-en="Book Electrician Now →" data-gu="હમણાં ઇલેક્ટ્રિશિયન બુક કરો →">Book Electrician Now →</button>
+    <div class="trust">✓ Skilled professionals &nbsp; ✓ Fast booking &nbsp; ✓ Safety first</div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><p class="eyebrow">OUR SERVICES</p><h2 data-en="What do you need?" data-gu="તમને કઈ સર્વિસ જોઈએ છે?">What do you need?</h2></div></div>
+    <div class="service-grid">
+      <button class="service" data-service="Residential Wiring & Repair"><b>🏠</b><strong>Residential</strong><small>Wiring, lights, fans, switches</small></button>
+      <button class="service" data-service="Commercial Electrical Work"><b>🏢</b><strong>Commercial</strong><small>Shops, offices, buildings</small></button>
+      <button class="service" data-service="Industrial Electrical Work"><b>🏭</b><strong>Industrial</strong><small>Panels, motors, maintenance</small></button>
+      <button class="service" data-service="HT / LT Electrical Work"><b>⚡</b><strong>HT / LT</strong><small>Qualified personnel only</small></button>
+      <button class="service" data-service="MCB / DB / RCCB Work"><b>🔌</b><strong>MCB / DB</strong><small>Protection and distribution</small></button>
+      <button class="service" data-service="Fault Finding & Maintenance"><b>🛠️</b><strong>Fault Finding</strong><small>Inspection and troubleshooting</small></button>
+    </div>
+  </section>
+
+  <section class="section booking-section" id="booking">
+    <p class="eyebrow">QUICK BOOKING</p><h2 data-en="Book an electrician" data-gu="ઇલેક્ટ્રિશિયન બુક કરો">Book an electrician</h2>
+    <p class="muted">Submit a request. Online saving requires Firebase configuration and suitable Firestore rules.</p>
+    <form id="bookingForm" class="form-grid">
+      <label>Full name<input id="customerName" required maxlength="100" placeholder="Enter your name"></label>
+      <label>Mobile number<input id="customerPhone" required inputmode="tel" pattern="[0-9 +()-]{10,15}" placeholder="Your phone number"></label>
+      <label class="full">Service required<select id="serviceType" required>
+        <option value="">Select a service</option><option>Residential Wiring & Repair</option><option>Commercial Electrical Work</option><option>Industrial Electrical Work</option><option>HT / LT Electrical Work</option><option>MCB / DB / RCCB Work</option><option>Fault Finding & Maintenance</option><option>Light, Fan & Switch Repair</option><option>Earthing & Safety Check</option>
+      </select></label>
+      <label>Area / locality<input id="area" required maxlength="120" placeholder="Area in Patan"></label>
+      <label>When do you need service?<select id="when"><option>As soon as possible</option><option>Within 30 minutes (subject to availability)</option><option>Today</option><option>Schedule for later</option></select></label>
+      <label class="full">Describe the problem<textarea id="problem" rows="3" maxlength="1000" placeholder="Example: MCB trips when motor starts"></textarea></label>
+      <label class="full">Payment preference<select id="payment"><option>Cash after service</option><option>Online payment (not yet enabled)</option></select></label>
+      <button class="primary full" type="submit">Submit Booking Request →</button>
+    </form><div id="bookingMessage" class="message" role="status"></div>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">FOR ELECTRICIANS</p><h2>Join Serviceman</h2>
+    <p class="muted">Register your details for verification. This form does not itself verify electrical qualifications.</p>
+    <form id="providerForm" class="form-grid">
+      <label>Full name<input id="providerName" required maxlength="100"></label>
+      <label>Mobile number<input id="providerPhone" required inputmode="tel" pattern="[0-9 +()-]{10,15}"></label>
+      <label>Experience (years)<input id="providerExp" type="number" min="0" max="60" required></label>
+      <label>Service type<select id="providerType"><option>Residential</option><option>Commercial</option><option>Industrial</option><option>Residential, Commercial & Industrial</option></select></label>
+      <label class="full">Area served<input id="providerArea" placeholder="Patan and nearby areas" required maxlength="120"></label>
+      <button class="secondary full" type="submit">Submit Electrician Registration</button>
+    </form><div id="providerMessage" class="message" role="status"></div>
+  </section>
+
+  <section class="section admin-section">
+    <div class="admin-title"><div><p class="eyebrow">LOCAL DEMO ADMIN</p><h2>Booking dashboard</h2></div><button class="secondary" id="refreshBtn" type="button">Refresh</button></div>
+    <p class="muted" id="adminNotice">This demo dashboard shows records saved on this device only. It is not a secure admin panel.</p>
+    <div id="stats" class="stats"></div><div id="bookingsList"></div>
+    <div class="admin-actions"><button class="secondary" id="exportBtn" type="button">Export bookings CSV</button><button class="danger" id="clearBtn" type="button">Clear local demo data</button></div>
+  </section>
+  <section class="contact"><div class="contact-icon">⚡</div><div><h2>Serviceman</h2><p>Electrical Engineer • 10 Years Experience</p><p>Residential • Commercial • Industrial</p><p>📍 Patan, Gujarat</p><p><a href="https://maps.google.com/?q=Patan,Gujarat" target="_blank" rel="noopener">Open service area map</a></p><a href="tel:9408671386" class="phone">☎ 9408671386</a></div></section>
+</main>
+<footer>© <span id="year"></span> Serviceman • Safe Electricity, Better Tomorrow<br><small>Electrical work should be handled by qualified professionals. HT work requires proper authorization and safety procedures.</small></footer>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+</body></html>
